@@ -28,32 +28,57 @@ float chkNbr(int endo) {
     return 1.0;
 }
 
-void countRolls(int end) {
-
+float countRoll(int endo, bool rolltype) {
+    int endurance = 1;
+    float weight = 45;
+    float rollweight;
+    for (int i = 1; i < endo; i++) {
+        weight += chkNbr(++endurance);
+    }
+    if (!rolltype) {
+        rollweight = weight * 0.30;
+    }
+    else {
+        rollweight = weight * 0.70;
+    }
+    //cout << "weight = " << weight << endl;
+    return rollweight;
 }
 
-void countLoad(int end) {
-    //float mediumC = end;
+void countLoad(int endo) {
+    //float mediumC = endo;
     //cout << "\nYour current max medium roll load: " << mediumC;
 }
 
 int main(){
-    int end;
-    float eq;
+    int endo, choice;
+    float eq, roll;
     cout << "Input your current endurance: ";
-    cin >> end;
-    if (end < 1 || end > 99)
+    cin >> endo;
+    if (endo < 1 || endo > 99)
     {
         cout << "Error, impossible endurance\n";
         return 0;
     }
-    else if (end == 99) {
+    else if (endo == 99) {
         cout << "bruh\n";
         return 0;
     }
     cout << "\nInput the total load you want to wear: ";
     cin >> eq;
-    //countLoad(end);
+    cout << "\nWhat kind of roll do you need?\n[1] light\n[2] medium\n[Other] Exit\ninput: ";
+    cin >> choice;
+    switch (choice) {
+    case 1:
+        roll = countRoll(endo, 0);
+        break;
+    case 2:
+        roll = countRoll(endo, 1);
+        break;
+    default:
+        return 0;
+    }
+    cout << "Your current allowed load: " << roll << endl;
     system("pause");
     return 0;
 }
