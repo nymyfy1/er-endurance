@@ -51,7 +51,7 @@ void countLoad(int endo) {
 }
 
 int main(){
-    int endo, choice;
+    int endo, choice, lv;
     float eq, roll;
     cout << "Input your current endurance: ";
     cin >> endo;
@@ -79,6 +79,19 @@ int main(){
         return 0;
     }
     cout << "Your current allowed load: " << roll << endl;
+    for (lv = 0; eq > roll; lv++) {
+        switch (choice) {
+        case 1:
+            roll = countRoll(endo + lv, 0);
+            break;
+        case 2:
+            roll = countRoll(endo + lv, 1);
+            break;
+        default:
+            break;
+        }
+    }
+    cout << "You need " << lv << " points in endurance\n";
     system("pause");
     return 0;
 }
