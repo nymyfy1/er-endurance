@@ -4,6 +4,8 @@ C:\Users\nmfor\source\repos\erend\ConsoleApplication1\ConsoleApplication1.cpp(21
 C:\Users\nmfor\source\repos\erend\ConsoleApplication1\ConsoleApplication1.cpp(23,23): warning C4305: 'return': truncation from 'double' to 'float'
 C:\Users\nmfor\source\repos\erend\ConsoleApplication1\ConsoleApplication1.cpp(25,23): warning C4305: 'return': truncation from 'double' to 'float'
 C:\Users\nmfor\source\repos\erend\ConsoleApplication1\ConsoleApplication1.cpp(27,23): warning C4305: 'return': truncation from 'double' to 'float'
-C:\Users\nmfor\source\repos\erend\ConsoleApplication1\ConsoleApplication1.cpp(39,29): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
-C:\Users\nmfor\source\repos\erend\ConsoleApplication1\ConsoleApplication1.cpp(42,29): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
+C:\Users\nmfor\source\repos\erend\ConsoleApplication1\ConsoleApplication1.cpp(39,42): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
+C:\Users\nmfor\source\repos\erend\ConsoleApplication1\ConsoleApplication1.cpp(42,42): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
+C:\Users\nmfor\source\repos\erend\ConsoleApplication1\ConsoleApplication1.cpp(71,26): warning C4305: '=': truncation from 'double' to 'float'
+C:\Users\nmfor\source\repos\erend\ConsoleApplication1\ConsoleApplication1.cpp(74,26): warning C4305: '=': truncation from 'double' to 'float'
   ConsoleApplication1.vcxproj -> C:\Users\nmfor\source\repos\erend\Debug\EREnduranceCalculator.exe

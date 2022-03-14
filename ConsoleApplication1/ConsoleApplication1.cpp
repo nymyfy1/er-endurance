@@ -28,7 +28,7 @@ float chkNbr(int endo) {
     return 1.0;
 }
 
-float countRoll(int endo, bool rolltype) {
+float countRoll(int endo, bool rolltype, float charmbonus) {
     int endurance = 1;
     float weight = 45;
     float rollweight;
@@ -36,10 +36,10 @@ float countRoll(int endo, bool rolltype) {
         weight += chkNbr(++endurance);
     }
     if (!rolltype) {
-        rollweight = weight * 0.30;
+        rollweight = weight * charmbonus * 0.30;
     }
     else {
-        rollweight = weight * 0.70;
+        rollweight = weight * charmbonus * 0.70;
     }
     //cout << "weight = " << weight << endl;
     return rollweight;
@@ -51,8 +51,8 @@ void countLoad(int endo) {
 }
 
 int main(){
-    int endo, choice, lv;
-    float eq, roll;
+    int endo, choice, lv, charm;
+    float eq, roll, charmbonus;
     cout << "Input your current endurance: ";
     cin >> endo;
     if (endo < 1 || endo > 99)
@@ -64,16 +64,29 @@ int main(){
         cout << "bruh\n";
         return 0;
     }
+    cout << "\nAre you wearing Arsenal Charm?\n[1] Arsenal Charm\n[2] Arsenal Charm +1\n[Other] No\ninput: ";
+    cin >> charm;
+    switch (charm) {
+    case 1:
+        charmbonus = 1.15;
+        break;
+    case 2:
+        charmbonus = 1.17;
+        break;
+    default:
+        charmbonus = 1;
+        break;
+    }
     cout << "\nInput the total load you want to wear: ";
     cin >> eq;
-    cout << "\nWhat kind of roll do you need?\n[1] light\n[2] medium\n[Other] Exit\ninput: ";
+    cout << "\nWhat kind of roll do you need?\n[1] Light\n[2] Medium\n[Other] Exit\ninput: ";
     cin >> choice;
     switch (choice) {
     case 1:
-        roll = countRoll(endo, 0);
+        roll = countRoll(endo, 0, charmbonus);
         break;
     case 2:
-        roll = countRoll(endo, 1);
+        roll = countRoll(endo, 1, charmbonus);
         break;
     default:
         return 0;
@@ -82,10 +95,10 @@ int main(){
     for (lv = 0; eq > roll; lv++) {
         switch (choice) {
         case 1:
-            roll = countRoll(endo + lv, 0);
+            roll = countRoll(endo + lv, 0, charmbonus);
             break;
         case 2:
-            roll = countRoll(endo + lv, 1);
+            roll = countRoll(endo + lv, 1, charmbonus);
             break;
         default:
             break;
